@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spare Parts Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="delta_logo.png" alt="Delta Electronics" class="logo">
+            <h1>Spare Parts Management</h1>
+        </header>
+        <main>
+            <form id="sparePartsForm">
+                <label for="partName">Part Name:</label>
+                <input type="text" id="partName" required>
+                
+                <label for="partNumber">Part Number:</label>
+                <input type="text" id="partNumber" required>
+                
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" required>
+                
+                <button type="submit">Add Record</button>
+            </form>
+            <table id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>Part Name</th>
+                        <th>Part Number</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Records will be added here -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
