@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sparePartsForm = document.getElementById('sparePartsForm');
     const recordsTableBody = document.querySelector('#recordsTable tbody');
-    const totalSparePartsDisplay = document.getElementById('totalSpareParts');
-    let totalSpareParts = 100; // Initial total spare parts count
+    let totalSpareParts = parseInt(document.getElementById('totalSpareParts').value);
 
     sparePartsForm.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         addRecord(partName, partNumber, quantity, dateUsed, employeeName);
-        updateTotalSpareParts(quantity);
+        updateTotalSpareParts(-quantity);
         sparePartsForm.reset();
     });
 
@@ -35,17 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         newRow.querySelector('.delete').addEventListener('click', function() {
-            updateTotalSpareParts(-quantity); // Subtract deleted record's quantity from total
-            recordsTableBody.removeChild(newRow);
-        });
-
-        recordsTableBody.appendChild(newRow);
-    }
-
-    function updateTotalSpareParts(quantity) {
-        totalSpareParts -= quantity;
-        totalSparePartsDisplay.textContent = totalSpareParts;
-    }
-});
+            update
 
 

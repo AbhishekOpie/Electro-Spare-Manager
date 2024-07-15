@@ -80,15 +80,3 @@ button.delete {
 button.delete:hover {
     background-color: #c82333;
 }
-
-.info {
-    margin-top: 20px;
-}
-
-.info p {
-    font-weight: bold;
-}
-
-.info span {
-    color: #007BFF;
-}
