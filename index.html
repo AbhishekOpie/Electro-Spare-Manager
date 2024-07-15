@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELECTRO-SPARE-MANAGER: DELTA ELECTRONICS</title>
+    <title>Spare Parts Management</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <img src="images/delta_logo.png" alt="Delta Electronics" class="logo">
-            <h1>ELECTRO-SPARE-MANAGER</h1>
+            <img src="delta_logo.png" alt="Delta Electronics" class="logo">
+            <h1>Spare Parts Management</h1>
         </header>
         <main>
             <form id="sparePartsForm">
@@ -22,12 +22,18 @@
                 
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" required>
-                
+
                 <label for="dateUsed">Date Used:</label>
                 <input type="date" id="dateUsed" required>
+
+                <label for="employeeName">Employee Name:</label>
+                <input type="text" id="employeeName" required>
                 
                 <button type="submit">Add Record</button>
             </form>
+            <div class="info">
+                <p>Total Spare Parts in Company: <span id="totalSpareParts">100</span></p>
+            </div>
             <table id="recordsTable">
                 <thead>
                     <tr>
@@ -35,6 +41,7 @@
                         <th>Part Number</th>
                         <th>Quantity</th>
                         <th>Date Used</th>
+                        <th>Employee</th>
                         <th>Action</th>
                     </tr>
                 </thead>
