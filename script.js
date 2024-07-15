@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTotalSpareParts(quantity) {
-        totalSpareParts += quantity;
+        totalSpareParts -= quantity;
         totalSparePartsDisplay.textContent = totalSpareParts;
     }
 });
