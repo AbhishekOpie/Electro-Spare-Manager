@@ -17,43 +17,25 @@ body {
 
 header {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .logo {
     max-width: 100px;
 }
 
-form {
-    margin-bottom: 20px;
+section {
+    margin-bottom: 40px;
 }
 
-form label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-form input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-form button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #0056b3;
+h2 {
+    margin-bottom: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 table, th, td {
@@ -65,8 +47,38 @@ th, td {
     text-align: left;
 }
 
-th {
-    background-color: #f4f4f4;
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
 }
 
 button.delete {

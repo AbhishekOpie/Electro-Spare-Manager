@@ -3,52 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spare Parts Management</title>
+    <title>Spare Parts Consumption Management</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <img src="delta_logo.png" alt="Delta Electronics" class="logo">
-            <h1>Spare Parts Management</h1>
+            <h1>Spare Parts Consumption Management</h1>
         </header>
         <main>
-            <form id="sparePartsForm">
-                <label for="partName">Part Name:</label>
-                <input type="text" id="partName" required>
-                
-                <label for="partNumber">Part Number:</label>
-                <input type="text" id="partNumber" required>
-                
-                <label for="quantity">Quantity Used:</label>
-                <input type="number" id="quantity" required>
-
-                <label for="dateUsed">Date Used:</label>
-                <input type="date" id="dateUsed" required>
-
-                <label for="employeeName">Employee Name:</label>
-                <input type="text" id="employeeName" required>
-
-                <label for="totalSpareParts">Total Spare Parts:</label>
-                <input type="number" id="totalSpareParts" required>
-
-                <button type="submit">Add Record</button>
-            </form>
-            <table id="recordsTable">
-                <thead>
-                    <tr>
-                        <th>Part Name</th>
-                        <th>Part Number</th>
-                        <th>Quantity Used</th>
-                        <th>Date Used</th>
-                        <th>Employee</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Records will be added here -->
-                </tbody>
-            </table>
+            <section class="inventory">
+                <h2>Spare Parts Inventory</h2>
+                <table id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>Part Name</th>
+                            <th>Part Number</th>
+                            <th>Available Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Inventory records will be added here dynamically -->
+                        <tr>
+                            <td>Part A</td>
+                            <td>P001</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Part B</td>
+                            <td>P002</td>
+                            <td>50</td>
+                        </tr>
+                        <!-- Example rows; actual rows will be added dynamically -->
+                    </tbody>
+                </table>
+            </section>
+            <section class="consumption">
+                <h2>Spare Parts Consumption Records</h2>
+                <form id="sparePartsForm">
+                    <label for="serialNo">Serial No.:</label>
+                    <input type="text" id="serialNo" required>
+                    
+                    <label for="partName">Part Name:</label>
+                    <input type="text" id="partName" required>
+                    
+                    <label for="partNumber">Part Number:</label>
+                    <input type="text" id="partNumber" required>
+                    
+                    <label for="quantityUsed">Quantity Used:</label>
+                    <input type="number" id="quantityUsed" required>
+                    
+                    <label for="employeeName">Employee Name:</label>
+                    <input type="text" id="employeeName" required>
+                    
+                    <label for="dateUsed">Date Used:</label>
+                    <input type="date" id="dateUsed" required>
+                    
+                    <label for="remark">Remark:</label>
+                    <textarea id="remark" rows="3"></textarea>
+                    
+                    <button type="submit">Add Consumption Record</button>
+                </form>
+                <table id="consumptionTable">
+                    <thead>
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>Part Name</th>
+                            <th>Part Number</th>
+                            <th>Quantity Used</th>
+                            <th>Employee Name</th>
+                            <th>Date Used</th>
+                            <th>Remark</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Consumption records will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
         </main>
     </div>
     <script src="script.js"></script>
