@@ -23,6 +23,9 @@
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" required>
                 
+                <label for="dateUsed">Date Used:</label>
+                <input type="date" id="dateUsed" required>
+                
                 <button type="submit">Add Record</button>
             </form>
             <table id="recordsTable">
@@ -31,11 +34,12 @@
                         <th>Part Name</th>
                         <th>Part Number</th>
                         <th>Quantity</th>
+                        <th>Date Used</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Records will be dynamically added here -->
+                    <!-- Records will be added here -->
                 </tbody>
             </table>
         </main>

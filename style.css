@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-
-    background: url('images/background.jpg') no-repeat center center fixed;
+    background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #333;
     margin: 0;
@@ -21,7 +20,7 @@ header {
 }
 
 .logo {
-    max-width:20px;
+    max-width: 100px;
 }
 
 form {
