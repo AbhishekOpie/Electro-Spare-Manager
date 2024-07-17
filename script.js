@@ -1,5 +1,5 @@
 // Sample initial inventory data
-const inventory = [
+let inventory = [
     { name: 'Resistor', quantity: 1000 },
     { name: 'Capacitor', quantity: 500 },
     { name: 'Transistor', quantity: 200 },
@@ -7,23 +7,30 @@ const inventory = [
 ];
 
 // Sample consumption log data
-const consumptionLog = [];
+let consumptionLog = [];
 
 // DOM elements
 const inventoryBody = document.getElementById('inventoryBody');
 const partNameSelect = document.getElementById('partName');
 const consumptionForm = document.getElementById('consumptionForm');
 const logBody = document.getElementById('logBody');
+const addPartBtn = document.getElementById('addPartBtn');
 
 // Populate inventory table and part name select
 function updateInventoryTable() {
     inventoryBody.innerHTML = '';
     partNameSelect.innerHTML = '';
 
-    inventory.forEach(item => {
+    inventory.forEach((item, index) => {
         const row = inventoryBody.insertRow();
-        row.insertCell(0).textContent = item.name;
-        row.insertCell(1).textContent = item.quantity;
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.quantity}</td>
+            <td>
+                <button onclick="editPart(${index})">Edit</button>
+                <button onclick="deletePart(${index})">Delete</button>
+            </td>
+        `;
 
         const option = document.createElement('option');
         option.value = item.name;
@@ -36,15 +43,17 @@ function updateInventoryTable() {
 function updateConsumptionLog() {
     logBody.innerHTML = '';
 
-    consumptionLog.forEach(entry => {
+    consumptionLog.forEach((entry, index) => {
         const row = logBody.insertRow();
-        row.insertCell(0).textContent = entry.serialNo;
-        row.insertCell(1).textContent = entry.partName;
-        row.insertCell(2).textContent = entry.partNumber;
-        row.insertCell(3).textContent = entry.quantity;
-        row.insertCell(4).textContent = entry.employeeName;
-        row.insertCell(5).textContent = entry.date;
-        row.insertCell(6).textContent = entry.remarks;
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${entry.partName}</td>
+            <td>${entry.partNumber}</td>
+            <td>${entry.quantity}</td>
+            <td>${entry.employeeName}</td>
+            <td>${entry.date}</td>
+            <td>${entry.remarks}</td>
+        `;
     });
 }
 
@@ -52,7 +61,6 @@ function updateConsumptionLog() {
 consumptionForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const serialNo = document.getElementById('serialNo').value;
     const partName = document.getElementById('partName').value;
     const partNumber = document.getElementById('partNumber').value;
     const quantity = parseInt(document.getElementById('quantity').value);
@@ -67,7 +75,6 @@ consumptionForm.addEventListener('submit', function(e) {
 
         // Add to consumption log
         consumptionLog.push({
-            serialNo,
             partName,
             partNumber,
             quantity,
@@ -86,6 +93,38 @@ consumptionForm.addEventListener('submit', function(e) {
         alert('Not enough parts in inventory!');
     }
 });
+
+// Add new part
+addPartBtn.addEventListener('click', function() {
+    const newPartName = prompt('Enter new part name:');
+    const newPartQuantity = parseInt(prompt('Enter initial quantity:'));
+
+    if (newPartName && !isNaN(newPartQuantity)) {
+        inventory.push({ name: newPartName, quantity: newPartQuantity });
+        updateInventoryTable();
+    }
+});
+
+// Edit part
+function editPart(index) {
+    const item = inventory[index];
+    const newName = prompt('Enter new name:', item.name);
+    const newQuantity = parseInt(prompt('Enter new quantity:', item.quantity));
+
+    if (newName && !isNaN(newQuantity)) {
+        item.name = newName;
+        item.quantity = newQuantity;
+        updateInventoryTable();
+    }
+}
+
+// Delete part
+function deletePart(index) {
+    if (confirm('Are you sure you want to delete this part?')) {
+        inventory.splice(index, 1);
+        updateInventoryTable();
+    }
+}
 
 // Initialize tables
 updateInventoryTable();
