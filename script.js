@@ -53,8 +53,27 @@ function updateConsumptionLog() {
             <td>${entry.employeeName}</td>
             <td>${entry.date}</td>
             <td>${entry.remarks}</td>
+            <td><button onclick="deleteLogEntry(${index})">Delete</button></td>
         `;
     });
+}
+
+// Delete log entry
+function deleteLogEntry(index) {
+    if (confirm('Are you sure you want to delete this log entry?')) {
+        // Remove the entry from the consumptionLog array
+        const deletedEntry = consumptionLog.splice(index, 1)[0];
+
+        // Add the quantity back to the inventory
+        const inventoryItem = inventory.find(item => item.name === deletedEntry.partName);
+        if (inventoryItem) {
+            inventoryItem.quantity += deletedEntry.quantity;
+        }
+
+        // Update both tables
+        updateInventoryTable();
+        updateConsumptionLog();
+    }
 }
 
 // Handle form submission
